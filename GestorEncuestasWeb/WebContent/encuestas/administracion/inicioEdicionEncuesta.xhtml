@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+	template="/plantillas/administracion.xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"> 
+         <ui:define name="header">
+         	<ui:include src="/extractos/encabezadoNavegacionGeneral.xhtml">
+         	</ui:include>
+         </ui:define>
+         <ui:define name="body">
+	        <div align="center">
+				<h:form >
+					Proposito Encuesta	
+					<h:inputTextarea 
+						id="propositoE" 
+						cols="20"  
+						rows="3" 
+						value="#{encuestaSesion.proposito}"
+						required="true"
+						requiredMessage="Tiene que insertar el propósito de la encuesta">
+						
+					</h:inputTextarea><h:message for="propositoE" styleClass="error"/><br/>
+					<h:commandButton action="#{encuestaSesion.iniciarEncuesta}" value="editar"/>
+				</h:form>
+			</div>
+         </ui:define>
+   </ui:composition>
+ 
+
+
+
+
+
+
+<!-- <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+    	<link href="./css/generalStyle.css" rel="stylesheet" type="text/css"></link> 
+    </h:head>  
+	<h:body>
+		<h:messages />
+		<h:form>	
+		<h:panelGrid columns="3">
+			Nombre <h:inputText 
+			id="nombreE" 
+			value="#{encuestaSesion.nombre}" 
+			validator="#{encuestaSesion.validarNombre}"
+			/> <h:message styleClass="error" for="nombreE"/>
+			Proposito encuesta (descripcion): 
+			<h:inputTextarea id="propositoE" cols="20" rows="10" value="#{encuestaSesion.proposito}" /> <h:message for="propositoE"/>
+			Valore su importancia (1-10): <h:inputText id="importanciaE" value="#{encuestaSesion.valoracion}" /><h:message for="importanciaE"/>
+		</h:panelGrid>
+			<h:commandButton value="editar" action="#{encuestaSesion.iniciarEncuesta}" />
+		</h:form>
+	</h:body>
+</html>  -->

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+	<body>
+		<fieldset>
+			<legend>Banco de encuestas</legend>
+			<h:form>
+				<h:selectOneMenu valueChangeListener="#{bancoEncuestas.obetenerRefEncuesta}">
+					<f:selectItems value="#{bancoEncuestas.arrayEncuestas}" />
+				</h:selectOneMenu>
+				<h:commandButton value="Empezar encuesta"  actionListener="#{bancoEncuestas.disponerEncuesta}" />
+			</h:form>
+		</fieldset>	
+		<fieldset>
+			<legend>Preguntas de la encuesta</legend>
+			<ul>
+				<ui:repeat var="pregunta" value="#{bancoEncuestas.preguntasEncuesta}">			
+					<ui:fragment rendered="#{pregunta.tipo==1}"> 
+						<li>
+						<h:selectOneRadio> 
+								#{pregunta.texto}
+								<f:selectItem itemValue="0" itemLabel="si"/>
+								<f:selectItem itemValue="1" itemLabel="no"/> 
+						</h:selectOneRadio><br></br>	
+						</li>
+					</ui:fragment>	
+					<ui:fragment rendered="#{pregunta.tipo==2}"> 
+						<li>
+						<h:selectOneRadio> 
+								#{pregunta.texto}
+								<f:selectItem itemValue="0" itemLabel="si"/>
+								<f:selectItem itemValue="1" itemLabel="no"/> 
+								<f:selectItem itemValue="1" itemLabel="no se"/>
+						</h:selectOneRadio><br></br>	
+						</li>
+					</ui:fragment>	
+					<ui:fragment rendered="#{pregunta.tipo==3}"> 
+						<li>
+						#{pregunta.texto}
+						<h:inputText  id="respuestaExpresiva" value="#{bancoPreguntas.nuevaPregunta}" />					</li>
+					</ui:fragment>			
+				</ui:repeat> 
+			</ul>			
+			<h:commandButton value="Terminar encuesta"  actionListener="#{bancoEncuestas.terminarEncuesta}" />
+		</fieldset>	
+	</body>
+</html>

@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+
+.largeSize{
+	font-size: 210%;
+}
+.normalsize{
+	font-size: 110%;
+}
+
+.error{
+	color: red;
+}
+.encabezadoNavegacion{
+	background-color: lime;
+	font-family: Palantino Linotype;
+	font-style: italic;
+}

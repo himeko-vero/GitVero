@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+    
+    </h:head>  
+	<h:body>
+		<h3>Nombre de la encuesta</h3>
+		
+		<ul style="list-style:none;">
+			<ui:repeat var="preguntas" value="#{encuestaSesion.registrosEncuesta}">
+				<li>#{preguntas.texto}</li>
+			</ui:repeat>
+		</ul>
+		
+		<h:form>
+			<h:commandButton value="Cancelar" action="#{encuestaSesion.cancelarEncuesta}" />
+			<h:commandButton value="Guardar" action="#{encuestaSesion.guardarEncuesta}" />
+			<h:commandButton value="Volver" action="#{encuestaSesion.volverEncuesta}" />
+		</h:form>
+	</h:body>
+</html>
